@@ -1,6 +1,7 @@
 import React from "react";
 
 import "../styles/components/TipCalc.css";
+import { Result } from "./Result";
 
 export const TipCalc = () => {
   return (
@@ -41,23 +42,7 @@ export const TipCalc = () => {
         </div>
       </div>
 
-      <div className="tipCalc__result">
-        <div className="tipCalc__result__item">
-          <div className="tipCalc__result__item__info">
-            <p>Tip Amount</p>
-            <p>/ person</p>
-          </div>
-          <p className="tipCalc__result__item__amount">$4.27</p>
-        </div>
-        <div className="tipCalc__result__item">
-          <div className="tipCalc__result__item__info">
-            <p>Total</p>
-            <p>/ person</p>
-          </div>
-          <p className="tipCalc__result__item__amount">$32.79</p>
-        </div>
-        <button className="tipCalc__result__reset-btn">Reset</button>
-      </div>
+      <Result />
     </section>
   );
 };

@@ -1,15 +1,14 @@
 .tipCalc {
-  background: white;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 24px;
   width: 100%;
   max-width: 1200px;
-  margin: 0 auto;
   min-height: calc(100vh - 150px);
+  margin: 0 auto;
+  padding: 32px;
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
-  padding: 32px;
+  background: white;
 }
 
 .tipCalc__info {
@@ -26,23 +25,23 @@
 .tipCalc__input {
   width: 100%;
   padding: 12px;
-  border: none;
+  text-align: right;
+  font-weight: bold;
+  color: var(--very-dark-cyan);
   font-size: var(--form-input);
   font-family: var(--base-font);
-  font-weight: bold;
+  border: none;
   border-radius: 6px;
-  color: var(--very-dark-cyan);
   background-color: var(--grayish-cyan-100);
-  text-align: right;
 }
 .tipCalc__input::placeholder {
   font-size: var(--form-input);
 }
 .tipCalc__input.tipCalc__input--bg {
+  padding-left: 30px;
   background-repeat: no-repeat;
   background-size: 14px;
   background-position: center left 12px;
-  padding-left: 30px;
 }
 .tipCalc__input.tipCalc__input--bg.tipCalc__input--bg-dollar {
   background-image: url("../../assets/icon-dollar.svg");
@@ -52,74 +51,32 @@
 }
 
 .tipCalc__tip-grid {
-  margin-top: 12px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-auto-rows: 45px;
   gap: 12px;
+  margin-top: 12px;
 }
 .tipCalc__tip-grid button {
   width: 100%;
   height: 100%;
-  border: none;
-  background: var(--very-dark-cyan);
   color: white;
-  cursor: pointer;
-  border-radius: 6px;
   font-weight: bold;
   font-size: var(--form-input);
   font-family: var(--base-font);
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  background: var(--very-dark-cyan);
 }
 
 .tipCalc__tip-grid button.active {
-  background: var(--strong-cyan);
   color: var(--very-dark-cyan);
+  background: var(--strong-cyan);
 }
 
 .tipCalc__tip-grid input {
   width: 100%;
-}
-
-.tipCalc__result {
-  display: grid;
-  gap: 12px;
-  width: 100%;
-  padding: 24px;
-  background-color: var(--very-dark-cyan);
-  border-radius: 6px;
-}
-
-.tipCalc__result__item {
-  display: flex;
-}
-.tipCalc__result__item__info {
-  flex: 1;
-}
-.tipCalc__result__item__info p:first-child {
-  color: white;
-  font-weight: bold;
-}
-.tipCalc__result__item__info p:last-child {
-  color: var(--grayish-cyan-600);
-  font-size: 14px;
-}
-.tipCalc__result__item__amount {
-  font-weight: bold;
-  font-size: var(--form-input);
-  color: var(--strong-cyan);
-}
-.tipCalc__result__reset-btn {
-  border: none;
-  font-weight: bold;
-  font-size: 20px;
-  color: var(--very-dark-cyan);
-  font-family: var(--base-font);
-  background: var(--strong-cyan);
-  text-transform: uppercase;
-  width: 100%;
-  border-radius: 4px;
-  padding: 8px;
-  cursor: pointer;
 }
 
 .form-control {
@@ -130,15 +87,11 @@
 
 @media screen and (min-width: 768px) {
   .tipCalc {
-    flex-direction: row;
+    grid-template-columns: 1fr 1fr;
     min-height: max-content;
     border-radius: 20px;
   }
   .tipCalc__tip-grid {
     grid-template-columns: repeat(3, 1fr);
-  }
-
-  .tipCalc__result__item {
-    height: min-content;
   }
 }
