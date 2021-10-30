@@ -22,7 +22,7 @@ export const TipCalc = () => {
           <p className="tipCalc__label">Bill</p>
           <input
             className="tipCalc__input tipCalc__input--bg tipCalc__input--bg-dollar"
-            type="text"
+            type="number"
             placeholder="0"
             onChange={(ev) => updateState("bill", Number(ev.target.value))}
             value={state.bill}
@@ -57,7 +57,7 @@ export const TipCalc = () => {
           <p className="tipCalc__label">Number of People</p>
           <input
             className="tipCalc__input tipCalc__input tipCalc__input--bg tipCalc__input--bg-person"
-            type="text"
+            type="number"
             placeholder="1"
             value={state.peopleCount}
             onChange={(ev) =>
