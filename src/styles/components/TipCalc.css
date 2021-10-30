@@ -4,10 +4,18 @@
   flex-direction: column;
   gap: 24px;
   width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
   min-height: calc(100vh - 150px);
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
   padding: 32px;
+}
+
+.tipCalc__info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .tipCalc__label {
@@ -50,7 +58,6 @@
   grid-auto-rows: 45px;
   gap: 12px;
 }
-
 .tipCalc__tip-grid button {
   width: 100%;
   height: 100%;
@@ -81,10 +88,10 @@
   background-color: var(--very-dark-cyan);
   border-radius: 6px;
 }
+
 .tipCalc__result__item {
   display: flex;
 }
-
 .tipCalc__result__item__info {
   flex: 1;
 }
@@ -119,4 +126,19 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+@media screen and (min-width: 768px) {
+  .tipCalc {
+    flex-direction: row;
+    min-height: max-content;
+    border-radius: 20px;
+  }
+  .tipCalc__tip-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .tipCalc__result__item {
+    height: min-content;
+  }
 }
