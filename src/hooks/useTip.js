@@ -1,15 +1,21 @@
 import { useState } from "react";
 
+const initialState = {
+  bill: "",
+  peopleCount: 1,
+  tipPercentage: 15,
+};
+
 export const useTip = () => {
-  const [state, setState] = useState({
-    bill: 0,
-    peopleCount: 1,
-    tipPercentage: 15,
-  });
+  const [state, setState] = useState(initialState);
 
   const updateState = (key, value) => {
     setState({ ...state, [key]: value });
   };
 
-  return { state, updateState };
+  const reset = () => {
+    setState(initialState);
+  };
+
+  return { state, updateState, reset };
 };

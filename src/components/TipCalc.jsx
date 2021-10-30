@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTip } from "../hooks/useTip";
 
 import "../styles/components/TipCalc.css";
@@ -8,8 +8,7 @@ import { Result } from "./Result";
 const percentagesButtons = [5, 10, 15, 25, 50];
 
 export const TipCalc = () => {
-  const { state, updateState } = useTip();
-  const [activeButton, setActiveButton] = useState(0);
+  const { state, updateState, reset } = useTip();
   const { tipAmount, total } = calcTip(
     state.bill,
     state.tipPercentage,
@@ -26,16 +25,18 @@ export const TipCalc = () => {
             type="text"
             placeholder="0"
             onChange={(ev) => updateState("bill", Number(ev.target.value))}
+            value={state.bill}
           />
         </div>
 
         <div>
           <p className="tipCalc__label">Select Tip %</p>
           <div className="tipCalc__tip-grid">
-            {percentagesButtons.map((percentage) => (
+            {percentagesButtons.map((percentage, id) => (
               <button
+                key={`${id}-${percentage}`}
                 onClick={() => updateState("tipPercentage", percentage)}
-                className={percentage === state.tipPercentage && `active`}
+                className={percentage === state.tipPercentage ? `active` : null}
               >
                 {percentage}%
               </button>
@@ -58,6 +59,7 @@ export const TipCalc = () => {
             className="tipCalc__input tipCalc__input tipCalc__input--bg tipCalc__input--bg-person"
             type="text"
             placeholder="1"
+            value={state.peopleCount}
             onChange={(ev) =>
               updateState("peopleCount", Number(ev.target.value))
             }
@@ -65,7 +67,7 @@ export const TipCalc = () => {
         </div>
       </div>
 
-      <Result tipAmount={tipAmount} total={total} />
+      <Result tipAmount={tipAmount} total={total} reset={reset} />
     </section>
   );
 };

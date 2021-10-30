@@ -2,7 +2,7 @@ import React from "react";
 
 import "../styles/components/Result.css";
 
-export const Result = ({ tipAmount, total }) => {
+export const Result = ({ tipAmount, total, reset }) => {
   return (
     <div className="result">
       <div className="result__item">
@@ -19,7 +19,9 @@ export const Result = ({ tipAmount, total }) => {
         </div>
         <p className="result__item__amount">${total}</p>
       </div>
-      <button className="result__reset-btn">Reset</button>
+      <button className="result__reset-btn" onClick={reset}>
+        Reset
+      </button>
     </div>
   );
 };
